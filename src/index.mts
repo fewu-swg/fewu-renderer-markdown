@@ -45,6 +45,10 @@ class MarkdownRenderer implements AbstractRenderer {
 
     type = /\.md$/;
 
+    toString(){
+        return `Renderer<.md>@fewu-swg`;
+    }
+
     async render(template: string, templatePath: string, variables: object): Promise<string> {
         return md.render(template);
     }
@@ -54,10 +58,12 @@ class MarkdownRenderer implements AbstractRenderer {
         let content = buffer.toString();
         return this.render(content, templatePath, variables);
     }
+
+    // @@non-standard
+    renderSync(template: string, _?: string, __?: object): string {
+        return md.render(template);
+    }
+
 }
-
-const fewuRendererMarkdown = new MarkdownRenderer();
-
-export default fewuRendererMarkdown; // this should be dropped when we finished unified renderer system.
 
 export { MarkdownRenderer, MarkdownRenderer as renderer };
