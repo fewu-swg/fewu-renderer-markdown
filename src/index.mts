@@ -10,7 +10,7 @@ import { sub } from "@mdit/plugin-sub";
 import { sup } from "@mdit/plugin-sup";
 
 import { readFile } from "fs/promises";
-import { AbstractRenderer } from "@fewu-swg/abstract-types";
+import { AbstractRenderer, BasicContext, Plugin } from "@fewu-swg/abstract-types";
 
 const md = MarkdownIt({
     html: true,
@@ -63,7 +63,23 @@ class MarkdownRenderer implements AbstractRenderer {
     renderSync(template: string, _?: string, __?: object): string {
         return md.render(template);
     }
-
 }
 
-export { MarkdownRenderer, MarkdownRenderer as renderer };
+// export { MarkdownRenderer, MarkdownRenderer as renderer };
+
+export class MarkdownRendererPlugin implements Plugin {
+    __fewu_is_plugin: boolean = true;
+    __fewu_plugin_name: string = `Renderer<Document::Markdown>`;
+    exports = {
+        renderers: [
+            new MarkdownRenderer()
+        ],
+        parsers: []
+    };
+    constructor(ctx: BasicContext){
+
+    }
+    assigner(ctx: BasicContext): void {
+        
+    }
+}

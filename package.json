@@ -1,6 +1,6 @@
 {
   "name": "@fewu-swg/fewu-renderer-markdown",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "description": "A Markdown renderer plugin for Fewu.",
   "license": "GPL-2.0-only",
   "author": "0xarch",
@@ -22,9 +22,9 @@
     "markdown-it-admonition": "^1.0.4"
   },
   "devDependencies": {
-    "@fewu-swg/abstract-types": "^1.0.0",
+    "@fewu-swg/abstract-types": "^1.2.1",
     "@types/markdown-it": "^14.1.2",
-    "@types/node": "^22.15.17",
+    "@types/node": "^24.0.3",
     "typescript": "^5.8.3"
   },
   "publishConfig": {
